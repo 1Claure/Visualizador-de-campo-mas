@@ -229,16 +229,6 @@ function renderFormation(formationCode) {
     const titularesContainer = document.getElementById('starting-eleven');
     const benchContainer = document.getElementById('bench');
     
-    // Guardar el estado actual de los jugadores en el campo
-    const currentFieldPlayers = Array.from(fieldContainer.querySelectorAll('.player'))
-        .map(element => ({
-            playerId: element.dataset.playerId,
-            position: {
-                left: element.style.left,
-                top: element.style.top
-            }
-        }));
-
     // Limpiar solo los elementos dinámicos (jugadores y espacios vacíos) del campo
     fieldContainer.querySelectorAll('.player, .empty-slot').forEach(el => el.remove());
     
@@ -262,22 +252,35 @@ function renderFormation(formationCode) {
     });
 
     // Segundo: Renderizar JUGADORES en el campo
-    starters.forEach(player => {
+    // Ordenar los jugadores por su posición actual en el campo
+    const sortedPlayers = starters.sort((a, b) => {
+        const posA = fieldContainer.querySelector(`.player[data-player-id="${a.id}"]`);
+        const posB = fieldContainer.querySelector(`.player[data-player-id="${b.id}"]`);
+        
+        // Si alguno no tiene posición, colocarlo al final
+        if (!posA) return 1;
+        if (!posB) return -1;
+        
+        // Comparar posiciones X para mantener el orden horizontal
+        const xA = parseFloat(posA.style.left);
+        const xB = parseFloat(posB.style.left);
+        return xA - xB;
+    });
+
+    // Colocar los jugadores en sus posiciones correspondientes
+    sortedPlayers.forEach((player, index) => {
+        const slot = formationSlots[index];
         const playerElement = createFieldPlayerElement(player);
         
-        // Buscar la posición personalizada si existe
-        const previousPosition = currentFieldPlayers.find(p => p.playerId === String(player.id));
+        // Si el jugador tiene una posición personalizada, usarla
+        const previousPosition = fieldContainer.querySelector(`.player[data-player-id="${player.id}"]`);
         if (previousPosition) {
-            // Usar la posición personalizada
-            playerElement.style.left = previousPosition.position.left;
-            playerElement.style.top = previousPosition.position.top;
+            playerElement.style.left = previousPosition.style.left;
+            playerElement.style.top = previousPosition.style.top;
         } else {
-            // Si no hay posición personalizada, usar la del slot
-            const slot = formationSlots.find(slot => slot.type === player.position);
-            if (slot) {
-                playerElement.style.left = `${slot.x}%`;
-                playerElement.style.top = `${slot.y}%`;
-            }
+            // Si no, usar la posición del slot
+            playerElement.style.left = `${slot.x}%`;
+            playerElement.style.top = `${slot.y}%`;
         }
         
         fieldContainer.appendChild(playerElement);
@@ -353,7 +356,7 @@ function drop(event) {
     // Encontrar el elemento más específico donde se soltó
     let dropTargetElement = event.target;
     while (dropTargetElement && dropTargetElement !== document.body) {
-        if (dropTargetElement.classList.contains('empty-slot')) {
+        if (dropTargetElement.classList.contains('empty-slot') || dropTargetElement.classList.contains('field')) {
             break;
         }
         dropTargetElement = dropTargetElement.parentElement;
@@ -364,7 +367,7 @@ function drop(event) {
         const targetSlotIndex = parseInt(dropTargetElement.dataset.slotIndex);
         
         if (!draggedPlayer.isStarter) {
-            // Actualizar el estado del jugador
+            // Si es un suplente, moverlo al campo
             draggedPlayer.isStarter = true;
             draggedPlayer.assignedSlotIndex = targetSlotIndex;
             
@@ -387,6 +390,45 @@ function drop(event) {
             if (cardToRemove) {
                 cardToRemove.remove();
             }
+        }
+    }
+    // Soltar sobre el CAMPO (para mover jugadores existentes)
+    else if (dropTargetElement && dropTargetElement.classList.contains('field')) {
+        if (draggedPlayer.isStarter) {
+            const playerElement = field.querySelector(`.player[data-player-id="${droppedPlayerId}"]`);
+            if (playerElement) {
+                const field = document.getElementById('players-container');
+                const rect = field.getBoundingClientRect();
+                const x = ((event.clientX - rect.left) / rect.width) * 100;
+                const y = ((event.clientY - rect.top) / rect.height) * 100;
+                
+                // Actualizar la posición del elemento existente
+                playerElement.style.left = `${x}%`;
+                playerElement.style.top = `${y}%`;
+                draggedPlayer.assignedSlotIndex = null; // Desasignar del slot específico
+                
+                // Asegurar que el elemento quede en la capa superior
+                playerElement.style.zIndex = 3;
+            }
+        }
+    }
+    // Soltar sobre la lista de SUPLENTES
+    else if (dropTargetElement && dropTargetElement.id === 'bench') {
+        if (draggedPlayer.isStarter) {
+            draggedPlayer.isStarter = false;
+            draggedPlayer.assignedSlotIndex = null;
+            
+            // Eliminar del campo
+            const playerElementToRemove = document.getElementById('players-container')
+                .querySelector(`.player[data-player-id="${droppedPlayerId}"]`);
+            if (playerElementToRemove) {
+                playerElementToRemove.remove();
+            }
+            
+            // Añadir a la lista de suplentes
+            const benchContainer = document.getElementById('bench');
+            const playerCard = createPlayerCard(draggedPlayer);
+            benchContainer.appendChild(playerCard);
         }
     }
     
