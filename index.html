@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Equipo de Fútbol</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="field-container">
+            <div class="field" id="players-container">
+                <div class="field-line center-line"></div>
+                <div class="center-circle"></div>
+                <div class="penalty-area left"></div>
+                <div class="goal-area left"></div>
+                <div class="penalty-area right"></div>
+                <div class="goal-area right"></div>
+                <div class="penalty-spot left"></div>
+                <div class="penalty-spot right"></div>
+                </div>
+        </div>
+
+        <div class="info-panel">
+            <label for="formation">Formación:</label>
+            <select id="formation">
+                <option value="433">4-3-3</option>
+                <option value="442">4-4-2</option>
+                 </select>
+
+            <h3>Titulares</h3>
+            <div id="starting-eleven" class="scrollable-player-list">
+                </div>
+
+            <h3>Suplentes</h3>
+            <div id="bench" class="scrollable-player-list">
+                 </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
