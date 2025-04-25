@@ -290,96 +290,80 @@ function showPositionDropdown(player, event) {
     if (currentDropdown) {
         currentDropdown.remove();
         currentDropdown = null;
-         // Si el click es sobre el mismo jugador que ten\u00EDa el desplegable abierto, solo cerramos
-         // (Verificamos por player ID asociado al dropdown)
-        if (currentDropdown && currentDropdown.dataset.playerId === String(player.id)) {
-             // No hacemos nada m\u00E1s, ya se cerr\u00F3 arriba
-             document.removeEventListener('click', handleClickOutsideDropdown);
-             return;
-         }
+        return; // Solo cerramos si es el mismo jugador
     }
 
-    const playerCard = event.target.closest('.player-card'); // Obtiene la tarjeta en la que se hizo clic
-    if (!playerCard) return; // Salir si no se hizo clic en una tarjeta
+    const playerCard = event.target.closest('.player-card');
+    if (!playerCard) return;
 
-
-    // S\u00f3lo mostrar el desplegable si hay posiciones elegibles definidas
     if (!player.eligiblePositions || player.eligiblePositions.length === 0) {
-        console.warn(`No hay posiciones elegibles definidas para ${player.name}. No se mostrar\u00E1 el desplegable.`);
-        // Opcional: mostrar un mensaje diferente al usuario en la UI
-        // alert(`No hay posiciones elegibles definidas para ${player.name}.`);
-        return; // No mostrar desplegable si no hay posiciones
+        console.warn(`No hay posiciones elegibles definidas para ${player.name}`);
+        return;
     }
-
 
     const dropdown = document.createElement('div');
-    dropdown.className = 'position-dropdown'; // Clase para darle estilo al desplegable
-    dropdown.dataset.playerId = player.id; // Para saber de qu\u00E9 jugador es este desplegable
+    dropdown.className = 'position-dropdown';
+    dropdown.dataset.playerId = player.id;
 
-    // A\u00F1adir estilos b\u00E1sicos al desplegable para que aparezca cerca de la tarjeta
-    // Obtenemos la posici\u00F3n de la tarjeta relativa a la ventana
     const rect = playerCard.getBoundingClientRect();
-    dropdown.style.position = 'fixed'; // Usar fixed para posicionar respecto a la ventana
+    dropdown.style.position = 'fixed';
     dropdown.style.backgroundColor = '#333';
     dropdown.style.border = '1px solid #555';
     dropdown.style.borderRadius = '5px';
-    dropdown.style.zIndex = 10; // Para que aparezca por encima de otros elementos
-    dropdown.style.minWidth = `${playerCard.offsetWidth}px`; // Mismo ancho que la tarjeta
+    dropdown.style.zIndex = 10;
+    dropdown.style.minWidth = `${playerCard.offsetWidth}px`;
     dropdown.style.padding = '5px 0';
-    // Posiciona justo debajo de la tarjeta
-    dropdown.style.top = `${rect.bottom + 5}px`; // 5px de margen debajo de la tarjeta
-    // Alinea a la izquierda de la tarjeta
+    dropdown.style.top = `${rect.bottom + 5}px`;
     dropdown.style.left = `${rect.left}px`;
-    dropdown.style.boxShadow = '2px 2px 5px rgba(0,0,0,0.5)';
-    dropdown.style.maxHeight = '200px'; // Altura m\u00E1xima
-    dropdown.style.overflowY = 'auto'; // Scroll si hay muchas posiciones
 
-
-    // Llenar el desplegable con las posiciones elegibles
     player.eligiblePositions.forEach(position => {
         const positionItem = document.createElement('div');
-        positionItem.className = 'position-item'; // Clase para los elementos del men\u00FA
+        positionItem.className = 'position-item';
         positionItem.textContent = position;
         positionItem.style.padding = '8px 15px';
         positionItem.style.cursor = 'pointer';
         positionItem.style.color = '#ccc';
 
-        // Estilo al pasar el mouse
-        positionItem.onmouseover = () => { positionItem.style.backgroundColor = '#555'; };
-        positionItem.onmouseout = () => { positionItem.style.backgroundColor = 'transparent'; };
+        positionItem.onmouseover = () => { 
+            positionItem.style.backgroundColor = '#555'; 
+        };
+        positionItem.onmouseout = () => { 
+            positionItem.style.backgroundColor = 'transparent'; 
+        };
 
-        // Evento click para seleccionar la posici\u00F3n (Funcionalidad futura)
+        // Modificación principal: Actualizar solo la posición del jugador sin recargar el tablero
         positionItem.onclick = () => {
-             console.log(`Posici\u00F3n "${position}" seleccionada para ${player.name}`);
-             // Aqu\u00ED a\u00F1adir\u00EDas la l\u00F3gica para:
-             // 1. Actualizar la posici\u00F3n principal del jugador en el array allPlayers si es necesario.
-             // 2. Manejar el arrastre/intercambio si el jugador est\u00E1 en suplentes y se selecciona una posici\u00F3n en el campo.
-             // 3. Cerrar el desplegable.
+            player.position = position;
+            
+            // Actualizar visualmente solo las tarjetas de jugadores
+            const titularesContainer = document.getElementById('starting-eleven');
+            const benchContainer = document.getElementById('bench');
+            
+            // Encontrar y actualizar la tarjeta específica que cambió
+            const playerCards = [...titularesContainer.querySelectorAll('.player-card'),
+                               ...benchContainer.querySelectorAll('.player-card')];
+            
+            const cardToUpdate = playerCards.find(card => 
+                card.dataset.playerId === String(player.id));
+            
+            if (cardToUpdate) {
+                cardToUpdate.innerHTML = `
+                    <span>${player.number} - ${player.name}</span>
+                    <span style="font-size: 0.8em; color: #aaa; margin-left: auto;">${player.position}</span>
+                `;
+            }
 
-             // Ejemplo simple: Actualizar la posici\u00F3n principal mostrada en la tarjeta
-             player.position = position; // Actualiza la propiedad en el objeto jugador
-             // Re-renderiza solo las listas para actualizar la tarjeta visualmente
-             renderFormation(document.getElementById('formation').value); // Vuelve a renderizar con la formaci\u00F3n actual
-
-
-             dropdown.remove(); // Cerrar el desplegable despu\u00E9s de seleccionar
-             currentDropdown = null;
-             document.removeEventListener('click', handleClickOutsideDropdown); // Elimina el listener al cerrar
+            dropdown.remove();
+            currentDropdown = null;
+            document.removeEventListener('click', handleClickOutsideDropdown, true);
         };
 
         dropdown.appendChild(positionItem);
     });
 
-
-    // A\u00F1adir el desplegable al cuerpo del documento
     document.body.appendChild(dropdown);
     currentDropdown = dropdown;
-
-
-    // A\u00F1adir listener para cerrar el desplegable si se hace clic fuera
-    // Usamos capture: true para que este listener se ejecute antes que otros posibles listeners de click
     document.addEventListener('click', handleClickOutsideDropdown, true);
-
 }
 
 function handleClickOutsideDropdown(event) {
