@@ -4,35 +4,35 @@ let allPlayers = [];
 
 // Definici\u00F3n de tus formaciones (esto se mantiene igual)
 const formations = {
-    "433": [
-        // ... tus coordenadas para 433 en campo horizontal, tu porter\u00EDa a la izquierda ...
-        { id: 'GK', x: 5, y: 50, type: 'POR' }, // A\u00F1adimos ID y cambiamos tipo a abreviatura
-        { id: 'LB', x: 22, y: 15, type: 'LTI' }, // A\u00F1adimos ID y cambiamos tipo a abreviatura
-        { id: 'LCB', x: 22, y: 37, type: 'DFC' }, // A\u00F1adimos ID y cambiamos tipo a abreviatura
-        { id: 'RCB', x: 22, y: 60, type: 'DFC' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura
-        { id: 'RB', x: 22, y: 85, type: 'LTD' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura
-        { id: 'LCM', x: 40, y: 30, type: 'MC' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura
-        { id: 'CDM', x: 35, y: 50, type: 'MCD' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura
-        { id: 'RCM', x: 40, y: 70, type: 'MC' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura
-        { id: 'LW', x: 55, y: 18, type: 'EI' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura
-        { id: 'ST', x: 60, y: 50, type: 'DEL' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura (cambiado de DL a DEL por consistencia)
-        { id: 'RW', x: 55, y: 82, type: 'ED' } // A\u00Fñadimos ID y cambiamos tipo a abreviatura
-    ],
-    "442": [
-        // ... tus coordenadas para 442 en campo horizontal, tu porter\u00EDa a la izquierda ...
-        { id: 'GK', x: 5, y: 50, type: 'POR' },
-        { id: 'LB', x: 22, y: 15, type: 'LTI' },
-        { id: 'LCB', x: 22, y: 37, type: 'DFC' },
-        { id: 'RCB', x: 22, y: 60, type: 'DFC' },
-        { id: 'RB', x: 22, y: 85, type: 'LTD' },
-        { id: 'LM', x: 40, y: 15, type: 'MEI' },
-        { id: 'LCM', x: 40, y: 37, type: 'MC' },
-        { id: 'RCM', x: 40, y: 60, type: 'MC' },
-        { id: 'RM', x: 40, y: 85, type: 'MED' },
-        { id: 'LST', x: 60, y: 37, type: 'DEL' }, // cambiado a DEL
-        { id: 'RST', x: 60, y: 60, type: 'DEL' } // cambiado a DEL
-    ],
-    // Puedes añadir m\u00E1s formaciones aqu\u00ED
+    "433": [
+        // ... tus coordenadas para 433 en campo horizontal, tu porter\u00EDa a la izquierda ...
+        { id: 'GK', x: 5, y: 50, type: 'POR' }, // A\u00F1adimos ID y cambiamos tipo a abreviatura
+        { id: 'LB', x: 22, y: 15, type: 'LTI' }, // A\u00F1adimos ID y cambiamos tipo a abreviatura
+        { id: 'LCB', x: 22, y: 37, type: 'DFC' }, // A\u00F1adimos ID y cambiamos tipo a abreviatura
+        { id: 'RCB', x: 22, y: 60, type: 'DFC' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura
+        { id: 'RB', x: 22, y: 85, type: 'LTD' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura
+        { id: 'LCM', x: 40, y: 30, type: 'MC' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura
+        { id: 'CDM', x: 35, y: 50, type: 'MCD' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura
+        { id: 'RCM', x: 40, y: 70, type: 'MC' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura
+        { id: 'LW', x: 55, y: 18, type: 'EI' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura
+        { id: 'ST', x: 60, y: 50, type: 'DEL' }, // A\u00Fñadimos ID y cambiamos tipo a abreviatura (cambiado de DL a DEL por consistencia)
+        { id: 'RW', x: 55, y: 82, type: 'ED' } // A\u00Fñadimos ID y cambiamos tipo a abreviatura
+    ],
+    "442": [
+        // ... tus coordenadas para 442 en campo horizontal, tu porter\u00EDa a la izquierda ...
+        { id: 'GK', x: 5, y: 50, type: 'POR' },
+        { id: 'LB', x: 22, y: 15, type: 'LTI' },
+        { id: 'LCB', x: 22, y: 37, type: 'DFC' },
+        { id: 'RCB', x: 22, y: 60, type: 'DFC' },
+        { id: 'RB', x: 22, y: 85, type: 'LTD' },
+        { id: 'LM', x: 40, y: 15, type: 'MEI' },
+        { id: 'LCM', x: 40, y: 37, type: 'MC' },
+        { id: 'RCM', x: 40, y: 60, type: 'MC' },
+        { id: 'RM', x: 40, y: 85, type: 'MED' },
+        { id: 'LST', x: 60, y: 37, type: 'DEL' }, // cambiado a DEL
+        { id: 'RST', x: 60, y: 60, type: 'DEL' } // cambiado a DEL
+    ],
+    // Puedes añadir m\u00E1s formaciones aqu\u00ED
 };
 
 // ** Funci\u00F3n para mostrar mensajes de error en la interfaz **
@@ -73,8 +73,8 @@ async function loadPlayersJson(jsonFilePath) {
         }
 
         // --- Mapear los objetos JSON a la estructura de objeto jugador esperada ---
-        // Ahora, todos los jugadores empiezan como suplentes (isStarter: false)
-        // y a\u00F1adimos assignedSlotIndex para rastrear d\u00F3nde est\u00E1n en el campo (si est\u00E1n)
+        // Ahora, todos los jugadores empiezan como suplentes (isStarter: false)
+        // y a\u00Fñadimos assignedSlotIndex para rastrear d\u00F3nde est\u00E1n en el campo (si est\u00E1n)
         allPlayers = jsonData.map((playerJson, index) => {
             // Validaci\u00F3n b\u00E1sica por si falta alg\u00FAn campo esencial que necesitamos
              if (!playerJson["Nombre"] || !playerJson["Apellido"] || !playerJson["Dorsal"] || !playerJson["Mejor Posici\u00f3n"] || !playerJson["Condici\u00f3n"]) {
@@ -97,10 +97,10 @@ async function loadPlayersJson(jsonFilePath) {
             
                 // ** Todos los jugadores empiezan como suplentes **
                 isStarter: false,
-                assignedSlotIndex: null, // Nuevo: \u00CDndice del slot de formaci\u00F3n al que est\u00E1 asignado (null si est\u00E1 en lista)
+                assignedSlotIndex: null, // Nuevo: \u00CDndice del slot de formaci\u00F3n al que est\u00E1 asignado (null si est\u00E1 en lista)
 
                 // ** Posiciones elegibles (eligiblePositions) **
-                // Mapeamos "Mejor Posici\u00f3n" y "Posci\u00f3n Alterna" a las elegibles
+                // Mapeamos "Mejor Posici\u00f3n" y "Posci\u00f3n Alterna" a las elegibles
                 eligiblePositions: [], // Empezamos con un array vacío
             
                 // ** Opcional: Añade otras propiedades del JSON si quieres almacenarlas **
@@ -112,16 +112,16 @@ async function loadPlayersJson(jsonFilePath) {
                 condicion: playerJson["Condición"]?.trim() || '', // Si quieres guardar la condición original
             };
 
-            // A\u00F1adimos "Mejor Posici\u00f3n" a las elegibles si existe y no est\u00E1 vac\u00EDa
-             if (player.position) {
-                 player.eligiblePositions.push(player.position);
-             }
+            // A\u00F1adimos "Mejor Posici\u00f3n" a las elegibles si existe y no est\u00E1 vac\u00EDa
+             if (player.position) {
+                 player.eligiblePositions.push(player.position);
+             }
 
-            // A\u00F1adimos "Posci\u00f3n Alterna" si existe y no est\u00E1 vac\u00EDa/repetida
-            const altPos = playerJson["Posci\u00f3n Alterna"]?.trim();
-            if (altPos && altPos !== '' && !player.eligiblePositions.includes(altPos)) {
-                player.eligiblePositions.push(altPos);
-            }
+            // A\u00Fñadimos "Posci\u00f3n Alterna" si existe y no est\u00E1 vac\u00EDa/repetida
+            const altPos = playerJson["Posci\u00f3n Alterna"]?.trim();
+            if (altPos && altPos !== '' && !player.eligiblePositions.includes(altPos)) {
+                player.eligiblePositions.push(altPos);
+            }
 
             return player; // Retornamos el objeto jugador mapeado
         }).filter(player => player !== null); // Filtramos cualquier entrada que retorn\u00F3 null
@@ -130,7 +130,7 @@ async function loadPlayersJson(jsonFilePath) {
         // Validar si se cargaron jugadores v\u00E1lidos despu\u00E9s del mapeo/filtrado
          if (allPlayers.length === 0) {
              console.warn(`No se cargaron jugadores v\u00E1lidos despu\u00E9s del procesamiento de "${jsonFilePath}". Revisa el formato JSON y las claves esperadas.`);
-             showErrorMessage(`No se pudieron cargar datos v\u00E1lidos de "${jsonFilePath}". Revisa su contenido y formato.`);
+             showErrorMessage(`Error en el formato de "${jsonFilePath}". Debe contener un array de jugadores.`);
              const formationSelect = document.getElementById('formation');
              if (formationSelect) { formationSelect.disabled = true; }
              return;
@@ -155,26 +155,26 @@ async function loadPlayersJson(jsonFilePath) {
 
 // --- Funci\u00F3n para crear un elemento que representa un espacio vac\u00EDo en el campo (NUEVO) ---
 function createEmptySlotElement(slot, slotIndex) {
-    const emptySlotElement = document.createElement('div');
-    emptySlotElement.className = 'empty-slot'; // Clase CSS para darle estilo (necesitar\u00E1s definirla)
-    emptySlotElement.textContent = slot.type; // Muestra la abreviatura de la posici\u00F3n
-    emptySlotElement.dataset.slotIndex = slotIndex; // Guarda el \u00EDndice del slot
-    // Posicionar el espacio vac\u00EDo usando las coordenadas X/Y del slot
-    emptySlotElement.style.position = 'absolute'; // Esencial para posicionamiento X/Y
-    emptySlotElement.style.left = `${slot.x}%`;
-    emptySlotElement.style.top = `${slot.y}%`;
-    // A\u00F1adir listeners de drag and drop para poder soltar jugadores aqu\u00ED
-    emptySlotElement.addEventListener('dragover', dragOver);
-    emptySlotElement.addEventListener('drop', drop);
-    // Opcional: A\u00F1adir estilos b\u00E1sicos o clases para el hover/dragover visual en CSS
-    // Centrar el contenido (el texto de la posici\u00F3n)
-    emptySlotElement.style.display = 'flex';
-    emptySlotElement.style.justifyContent = 'center';
-    emptySlotElement.style.alignItems = 'center';
-    // Centrar el elemento mismo en sus coordenadas X/Y
-    emptySlotElement.style.transform = 'translate(-50%, -50%)';
+    const emptySlotElement = document.createElement('div');
+    emptySlotElement.className = 'empty-slot'; // Clase CSS para darle estilo (necesitar\u00E1s definirla)
+    emptySlotElement.textContent = slot.type; // Muestra la abreviatura de la posici\u00F3n
+    emptySlotElement.dataset.slotIndex = slotIndex; // Guarda el \u00EDndice del slot
+    // Posicionar el espacio vac\u00EDo usando las coordenadas X/Y del slot
+    emptySlotElement.style.position = 'absolute'; // Esencial para posicionamiento X/Y
+    emptySlotElement.style.left = `${slot.x}%`;
+    emptySlotElement.style.top = `${slot.y}%`;
+    // A\u00F1adir listeners de drag and drop para poder soltar jugadores aqu\u00ED
+    emptySlotElement.addEventListener('dragover', dragOver);
+    emptySlotElement.addEventListener('drop', drop);
+    // Opcional: A\u00F1adir estilos b\u00E1sicos o clases para el hover/dragover visual en CSS
+    // Centrar el contenido (el texto de la posici\u00F3n)
+    emptySlotElement.style.display = 'flex';
+    emptySlotElement.style.justifyContent = 'center';
+    emptySlotElement.style.alignItems = 'center';
+    // Centrar el elemento mismo en sus coordenadas X/Y
+    emptySlotElement.style.transform = 'translate(-50%, -50%)';
 
-    return emptySlotElement;
+    return emptySlotElement;
 }
 
 
@@ -186,12 +186,12 @@ function createFieldPlayerElement(player) {
     playerElement.dataset.playerId = player.id; // Usamos el ID mapeado
     playerElement.setAttribute('draggable', true);
     playerElement.addEventListener('dragstart', dragStart);
-    // Centrar el contenido (n\u00FAmero)
-    playerElement.style.display = 'flex';
-    playerElement.style.justifyContent = 'center';
-    playerElement.style.alignItems = 'center';
-    // Centrar el elemento mismo en sus coordenadas X/Y (si se posiciona absol\u00FAtamente)
-    // Aseg\u00FArate de que tu CSS base para .player ya incluye transform: translate(-50%, -50%);
+    // Centrar el contenido (n\u00FAmero)
+    playerElement.style.display = 'flex';
+    playerElement.style.justifyContent = 'center';
+    playerElement.style.alignItems = 'center';
+    // Centrar el elemento mismo en sus coordenadas X/Y (si se posiciona absol\u00FAtamente)
+    // Aseg\u00FArate de que tu CSS base para .player ya incluye transform: translate(-50%, -50%);
     return playerElement;
 }
 
@@ -204,7 +204,7 @@ function createPlayerCard(player) {
         <span>${player.number} - ${player.name}</span>
         <span style="font-size: 0.8em; color: #aaa; margin-left: auto;">${player.position}</span>
     `;
-    // Hacemos las tarjetas arrastrables
+    // Hacemos las tarjetas arrastrables
     playerCard.setAttribute('draggable', true);
     playerCard.addEventListener('dragstart', dragStart);
 
@@ -219,220 +219,256 @@ function createPlayerCard(player) {
 
 // --- Funci\u00F3n renderFormation (MODIFICADA SIGNIFICATIVAMENTE) ---
 function renderFormation(formationCode) {
-    // Solo renderiza si allPlayers ha sido llenado y no está vacío
-    if (!allPlayers || allPlayers.length === 0) {
-        console.warn("allPlayers está vacío. No se puede renderizar la formación.");
-        return;
-    }
+    // Solo renderiza si allPlayers ha sido llenado y no está vacío
+    if (!allPlayers || allPlayers.length === 0) {
+        console.warn("allPlayers está vacío. No se puede renderizar la formación.");
+        return;
+    }
 
-    const fieldContainer = document.getElementById('players-container');
-    const titularesContainer = document.getElementById('starting-eleven');
-    const benchContainer = document.getElementById('bench');
-    
-    // Limpiar solo los elementos dinámicos (jugadores y espacios vacíos) del campo
-    fieldContainer.querySelectorAll('.player, .empty-slot').forEach(el => el.remove());
-    
-    // Limpiar las listas
-    titularesContainer.innerHTML = '';
-    benchContainer.innerHTML = '';
+    const fieldContainer = document.getElementById('players-container');
+    const titularesContainer = document.getElementById('starting-eleven');
+    const benchContainer = document.getElementById('bench');
+    
+    // Limpiar solo los elementos dinámicos (jugadores y espacios vacíos) del campo
+    fieldContainer.querySelectorAll('.player, .empty-slot').forEach(el => el.remove());
+    
+    // Limpiar las listas
+    titularesContainer.innerHTML = '';
+    benchContainer.innerHTML = '';
 
-    const formationSlots = formations[formationCode];
-    
-    // Filtrar jugadores por su estado actual
-    const starters = allPlayers.filter(player => player.isStarter);
-    const benchPlayers = allPlayers.filter(player => !player.isStarter);
+    const formationSlots = formations[formationCode];
+    
+    // Filtrar jugadores por su estado actual
+    const playersInField = allPlayers.filter(player => player.isStarter && player.assignedSlotIndex !== null);
+    const benchPlayers = allPlayers.filter(player => !player.isStarter || player.assignedSlotIndex === null); // Los que no son titulares O no est\u00E1n asignados a un slot van al banquillo
 
-    // Primero: Renderizar ESPACIOS VACÍOS en todos los slots
-    formationSlots.forEach((slot, index) => {
-        // Si no hay jugador asignado a este slot, crear un espacio vacío
-        if (!starters[index]) {
-            const emptySlotElement = createEmptySlotElement(slot, index);
-            fieldContainer.appendChild(emptySlotElement);
-        }
-    });
+    // --- Renderizar ESPACIOS VACÍOS o JUGADORES en el campo ---
+    // Iteramos sobre los slots de la formaci\u00F3n
+    formationSlots.forEach((slot, index) => {
+        // Buscamos si alg\u00FAn jugador est\u00E1 asignado a este slot (tiene isStarter: true y assignedSlotIndex == index)
+        const playerInSlot = playersInField.find(player => player.assignedSlotIndex === index);
 
-    // Segundo: Renderizar JUGADORES en el campo
-    // Ordenar los jugadores por su posición actual en el campo
-    const sortedPlayers = starters.sort((a, b) => {
-        const posA = fieldContainer.querySelector(`.player[data-player-id="${a.id}"]`);
-        const posB = fieldContainer.querySelector(`.player[data-player-id="${b.id}"]`);
-        
-        // Si alguno no tiene posición, colocarlo al final
-        if (!posA) return 1;
-        if (!posB) return -1;
-        
-        // Comparar posiciones X para mantener el orden horizontal
-        const xA = parseFloat(posA.style.left);
-        const xB = parseFloat(posB.style.left);
-        return xA - xB;
-    });
-
-    // Colocar los jugadores en sus posiciones correspondientes
-    sortedPlayers.forEach((player, index) => {
-        const slot = formationSlots[index];
-        const playerElement = createFieldPlayerElement(player);
-        
-        // Si el jugador tiene una posición personalizada, usarla
-        const previousPosition = fieldContainer.querySelector(`.player[data-player-id="${player.id}"]`);
-        if (previousPosition) {
-            playerElement.style.left = previousPosition.style.left;
-            playerElement.style.top = previousPosition.style.top;
+        if (playerInSlot) {
+             // Si hay un jugador asignado a este slot, creamos y a\u00F1adimos la ficha del jugador
+             const playerElement = createFieldPlayerElement(playerInSlot);
+             // Posicionamos usando las coordenadas del slot asignado
+             playerElement.style.left = `${slot.x}%`;
+             playerElement.style.top = `${slot.y}%`;
+             fieldContainer.appendChild(playerElement);
         } else {
-            // Si no, usar la posición del slot
-            playerElement.style.left = `${slot.x}%`;
-            playerElement.style.top = `${slot.y}%`;
+             // Si no hay jugador asignado a este slot, creamos y a\u00F1adimos un espacio vac\u00EDo
+             const emptySlotElement = createEmptySlotElement(slot, index); // Creamos el nuevo elemento de espacio vac\u00EDo
+             fieldContainer.appendChild(emptySlotElement); // Lo a\u00F1adimos al campo
         }
-        
-        fieldContainer.appendChild(playerElement);
+    });
+
+
+    // --- Renderizar JUGADORES en las listas ---
+
+    // 1. Renderizar jugadores en la lista de TITULARES
+    // Ordenar los jugadores en el campo por su slot index para mostrarlos en orden de formaci\u00F3n en la lista
+    const sortedStarters = playersInField.sort((a, b) => a.assignedSlotIndex - b.assignedSlotIndex);
+    sortedStarters.forEach(player => {
+        const playerCard = createPlayerCard(player); // Crea la tarjeta
+        titularesContainer.appendChild(playerCard); // La a\u00F1ade a la lista de titulares
     });
 
-    // Tercero: Renderizar jugadores en las listas
+
+    // 2. Renderizar jugadores en la lista de SUPLENTES
+    // Puedes ordenar la lista de suplentes aqu\u00ED si quieres (ej: por n\u00FAmero, apellido, etc.)
+    // benchPlayers.sort((a, b) => a.number - b.number); // Ejemplo de orden por n\u00FAmero
     benchPlayers.forEach(player => {
-        const playerCard = createPlayerCard(player);
-        benchContainer.appendChild(playerCard);
-    });
+        const playerCard = createPlayerCard(player); // Crea la tarjeta
+        benchContainer.appendChild(playerCard); // La a\u00F1ade a la lista de suplentes
+    });
 }
 
 // --- Funciones de Drag and Drop (MODIFICADAS) ---
 let draggedPlayerId = null; // Almacenar solo el ID del jugador arrastrado
 
 function dragStart(event) {
-    const targetElement = event.target;
+    const targetElement = event.target;
 
-    // Solo permitir drag si es un elemento con la clase 'player' (campo) o 'player-card' (lista)
-    if (targetElement.classList.contains('player') || targetElement.classList.contains('player-card')) {
-        draggedPlayerId = targetElement.dataset.playerId;
-        event.dataTransfer.setData('text/plain', draggedPlayerId);
-        event.dataTransfer.effectAllowed = 'move';
+    // Solo permitir drag si es un elemento con la clase 'player' (campo) o 'player-card' (lista)
+    if (targetElement.classList.contains('player') || targetElement.classList.contains('player-card')) {
+        draggedPlayerId = targetElement.dataset.playerId;
+        event.dataTransfer.setData('text/plain', draggedPlayerId);
+        event.dataTransfer.effectAllowed = 'move';
 
-        setTimeout(() => {
-             targetElement.classList.add('dragging');
-        }, 0);
+        setTimeout(() => {
+             targetElement.classList.add('dragging');
+        }, 0);
 
-    } else {
-        event.preventDefault();
-    }
+    } else {
+        event.preventDefault();
+    }
 }
 
 function dragOver(event) {
-    event.preventDefault();
-    event.dataTransfer.dropEffect = 'move';
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'move';
 
-    // Identificar la zona de soltado de inter\u00E9s en este nuevo flujo: espacios vac\u00EDos, campo (para soltar un titular en espacio no player), lista de suplentes (para enviar titular al banco)
-    const dropZone = event.target.closest('.empty-slot, .field, #bench');
-
-     // Limpiar clases de dragover previas en todas las zonas posibles de inter\u00E9s
-     document.querySelectorAll('.empty-slot, .field, #bench').forEach(el => el.classList.remove('drag-over'));
+    // Identificar la zona de soltado de inter\u00E9s: espacios vac\u00EDos, jugadores en campo, lista de suplentes
+    const dropZone = event.target.closest('.empty-slot, .player, #bench');
 
 
-    // A\u00F1adir clase si la zona de soltado es v\u00E1lida
-    if (dropZone) {
-        // Podemos refinar qu\u00E9 zonas se resaltan dependiendo del elemento arrastrado si queremos.
-        // Por ahora, resaltamos cualquier zona potencial de soltado (espacio vac\u00EDo, campo, banquillo).
-        dropZone.classList.add('drag-over');
-    }
+     // Limpiar clases de dragover previas en todas las zonas posibles de inter\u00E9s
+     document.querySelectorAll('.empty-slot, .player, #bench').forEach(el => el.classList.remove('drag-over'));
+
+
+    // A\u00Fñadir clase si la zona de soltado es v\u00E1lida
+    if (dropZone) {
+        // Podemos refinar qu\u00E9 zonas se resaltan dependiendo del elemento arrastrado si queremos.
+        // Por ahora, resaltamos cualquier zona potencial de soltado (espacio vac\u00EDo, jugador en campo, banquillo).
+        dropZone.classList.add('drag-over');
+    }
 }
 
 function drop(event) {
-    event.preventDefault();
-    event.dataTransfer.dropEffect = 'move';
-    
-    // Limpiar clases de dragover de todas las zonas
-    document.querySelectorAll('.empty-slot, .player, .player-card, .field, #starting-eleven, #bench').forEach(el => el.classList.remove('drag-over'));
-    
-    const droppedPlayerId = event.dataTransfer.getData('text/plain');
-    const draggedPlayer = allPlayers.find(p => String(p.id) === droppedPlayerId);
-    if (!draggedPlayer) {
-        console.warn("No se encontró el jugador arrastrado (ID:", droppedPlayerId, ").");
-        return;
-    }
-    
-    // Eliminar la clase 'dragging' del elemento que se arrastró
-    const draggedElement = document.querySelector(`.player[data-player-id="${droppedPlayerId}"], .player-card[data-player-id="${droppedPlayerId}"]`);
-    if (draggedElement) {
-        draggedElement.classList.remove('dragging');
-    }
-    
-    // Encontrar el elemento más específico donde se soltó
-    let dropTargetElement = event.target;
-    while (dropTargetElement && dropTargetElement !== document.body) {
-        if (dropTargetElement.classList.contains('empty-slot') || dropTargetElement.classList.contains('field')) {
-            break;
-        }
-        dropTargetElement = dropTargetElement.parentElement;
-    }
-    
-    // Si se soltó sobre un ESPACIO VACÍO
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'move';
+    
+    // Limpiar clases de dragover de todas las zonas
+    document.querySelectorAll('.empty-slot, .player, .player-card, .field, #starting-eleven, #bench').forEach(el => el.classList.remove('drag-over'));
+    
+    const droppedPlayerId = event.dataTransfer.getData('text/plain');
+    const draggedPlayer = allPlayers.find(p => String(p.id) === droppedPlayerId);
+    if (!draggedPlayer) {
+        console.warn("No se encontró el jugador arrastrado (ID:", droppedPlayerId, ").");
+        // Eliminar la clase 'dragging' por si acaso el elemento a\u00FAn la tiene
+        const draggedElement = document.querySelector(`.player[data-player-id="${droppedPlayerId}"], .player-card[data-player-id="${droppedPlayerId}"]`);
+         if (draggedElement) {
+             draggedElement.classList.remove('dragging');
+         }
+        return;
+    }
+    
+    // Eliminar la clase 'dragging' del elemento que se arrastró
+    const draggedElement = document.querySelector(`.player[data-player-id="${droppedPlayerId}"], .player-card[data-player-id="${droppedPlayerId}"]`);
+    if (draggedElement) {
+        draggedElement.classList.remove('dragging');
+    }
+    
+    // Encontrar el elemento más específico donde se soltó que sea un target v\u00E1lido
+    const dropTargetElement = event.target.closest('.empty-slot, .player, #bench'); // Los targets v\u00E1lidos son empty-slot, player, bench
+
+
+    // --- Lógica de soltar e intercambiar/mover ---
+
+    // Soltar sobre un ESPACIO VAC\u00CDO en el campo (.empty-slot)
     if (dropTargetElement && dropTargetElement.classList.contains('empty-slot')) {
         const targetSlotIndex = parseInt(dropTargetElement.dataset.slotIndex);
-        
+
+        // Asegurarse de que el jugador arrastrado es un suplente (no est\u00E1 ya en el campo)
         if (!draggedPlayer.isStarter) {
-            // Si es un suplente, moverlo al campo
-            draggedPlayer.isStarter = true;
-            draggedPlayer.assignedSlotIndex = targetSlotIndex;
-            
-            // Eliminar el espacio vacío y añadir la ficha del jugador
-            dropTargetElement.remove();
-            
-            const playerElement = createFieldPlayerElement(draggedPlayer);
-            const field = document.getElementById('players-container');
-            const rect = field.getBoundingClientRect();
-            const x = ((event.clientX - rect.left) / rect.width) * 100;
-            const y = ((event.clientY - rect.top) / rect.height) * 100;
-            
-            playerElement.style.left = `${x}%`;
-            playerElement.style.top = `${y}%`;
-            field.appendChild(playerElement);
-            
-            // Eliminar de la lista de suplentes
-            const benchContainer = document.getElementById('bench');
-            const cardToRemove = benchContainer.querySelector(`.player-card[data-player-id="${droppedPlayerId}"]`);
-            if (cardToRemove) {
-                cardToRemove.remove();
-            }
+             console.log(`Colocando a ${draggedPlayer.name} en el slot vac\u00EDo (Slot ${targetSlotIndex}).`);
+
+             // 1. Actualizar el estado del jugador arrastrado en el array allPlayers
+             draggedPlayer.isStarter = true; // Ahora es titular
+             draggedPlayer.assignedSlotIndex = targetSlotIndex; // Asignar al slot del campo
+
+             // 2. Re-renderizar TODO (campo y listas) para reflejar el cambio de estado
+             renderFormation(document.getElementById('formation').value);
+
+        } else {
+            console.log(`Jugador ${draggedPlayer.name} ya es titular. No se puede soltar en espacio vac\u00EDo.`);
+            // Puedes a\u00F1adir feedback visual aqu\u00ED (ej: sacudir el slot, mensaje)
+        }
+
+    }
+    // Soltar sobre un JUGADOR que YA EST\u00C1 EN EL CAMPO (.player)
+    else if (dropTargetElement && dropTargetElement.classList.contains('player')) {
+        const targetPlayerId = dropTargetElement.dataset.playerId;
+        const targetPlayer = allPlayers.find(p => String(p.id) === targetPlayerId);
+
+        // Asegurarse de que los jugadores son diferentes
+        if (targetPlayer && draggedPlayer.id !== targetPlayer.id) {
+             console.log(`Intentando intercambiar ${draggedPlayer.name} con ${targetPlayer.name} (en campo).`);
+
+             // Caso 1: Arrastrar SUPLENTE sobre TITULAR en campo (Intercambio: Suplente al campo, Titular al banco)
+             if (!draggedPlayer.isStarter && targetPlayer.isStarter) {
+                 console.log(`  Suplente ${draggedPlayer.name} entra por Titular ${targetPlayer.name}.`);
+
+                 const targetSlotIndex = targetPlayer.assignedSlotIndex; // Slot actual del titular
+
+                 // 1. Actualizar estado en allPlayers
+                 draggedPlayer.isStarter = true;
+                 draggedPlayer.assignedSlotIndex = targetSlotIndex; // El suplente ocupa el slot del titular
+
+                 targetPlayer.isStarter = false;
+                 targetPlayer.assignedSlotIndex = null; // El titular va al banco
+
+                 // 2. Re-renderizar TODO (campo y listas) para reflejar los cambios de estado
+                 renderFormation(document.getElementById('formation').value);
+
+             }
+             // Caso 2: Arrastrar TITULAR sobre otro TITULAR en campo (Intercambio de posici\u00F3n en el campo)
+             else if (draggedPlayer.isStarter && targetPlayer.isStarter) {
+                  console.log(`  Titular ${draggedPlayer.name} intercambia posici\u00F3n con Titular ${targetPlayer.name}.`);
+
+                  // Intercambiar los assignedSlotIndex en los datos
+                  const draggedOriginalSlotIndex = draggedPlayer.assignedSlotIndex;
+                  const targetOriginalSlotIndex = targetPlayer.assignedSlotIndex;
+
+                  draggedPlayer.assignedSlotIndex = targetOriginalSlotIndex;
+                  targetPlayer.assignedSlotIndex = draggedOriginalSlotIndex;
+
+                  // Re-renderizar TODO (campo y listas) para reflejar los cambios de estado
+                  renderFormation(document.getElementById('formation').value);
+
+             }
+             // Caso 3: Arrastrar TITULAR sobre SUPLENTE en campo (No deber\u00EDa ocurrir con el flujo actual de empty-slots)
+             // ... (Si implementas la l\u00F3gica de soltar sobre tarjeta en lista de titulares, ir\u00EDa ah\u00ED) ...
+
+        } else if (targetPlayer && draggedPlayer.id === targetPlayer.id) {
+             console.log("Arrastrado y soltado sobre el mismo jugador en el campo. (No hace nada)");
+        } else {
+             console.warn("Target de soltado no encontrado o inv\u00E1lido (jugador en campo).");
         }
     }
-    // Soltar sobre el CAMPO (para mover jugadores existentes)
-    else if (dropTargetElement && dropTargetElement.classList.contains('field')) {
-        if (draggedPlayer.isStarter) {
-            const playerElement = field.querySelector(`.player[data-player-id="${droppedPlayerId}"]`);
-            if (playerElement) {
-                const field = document.getElementById('players-container');
-                const rect = field.getBoundingClientRect();
-                const x = ((event.clientX - rect.left) / rect.width) * 100;
-                const y = ((event.clientY - rect.top) / rect.height) * 100;
-                
-                // Actualizar la posición del elemento existente
-                playerElement.style.left = `${x}%`;
-                playerElement.style.top = `${y}%`;
-                draggedPlayer.assignedSlotIndex = null; // Desasignar del slot específico
-                
-                // Asegurar que el elemento quede en la capa superior
-                playerElement.style.zIndex = 3;
-            }
-        }
-    }
-    // Soltar sobre la lista de SUPLENTES
+    // Soltar sobre la lista de SUPLENTES (\#bench) - Para enviar un jugador del campo al banco
     else if (dropTargetElement && dropTargetElement.id === 'bench') {
+        // Asegurarse de que el jugador arrastrado es un titular (est\u00E1 en el campo)
         if (draggedPlayer.isStarter) {
-            draggedPlayer.isStarter = false;
-            draggedPlayer.assignedSlotIndex = null;
-            
-            // Eliminar del campo
-            const playerElementToRemove = document.getElementById('players-container')
-                .querySelector(`.player[data-player-id="${droppedPlayerId}"]`);
-            if (playerElementToRemove) {
-                playerElementToRemove.remove();
-            }
-            
-            // Añadir a la lista de suplentes
-            const benchContainer = document.getElementById('bench');
-            const playerCard = createPlayerCard(draggedPlayer);
-            benchContainer.appendChild(playerCard);
+             console.log(`Enviando a ${draggedPlayer.name} al banco.`);
+
+             // 1. Actualizar el estado del jugador arrastrado en el array allPlayers
+             draggedPlayer.isStarter = false; // Pasa a ser suplente
+             draggedPlayer.assignedSlotIndex = null; // Ya no est\u00E1 asignado a un slot
+
+             // 2. Re-renderizar TODO (campo y listas) para reflejar los cambios de estado
+             renderFormation(document.getElementById('formation').value);
+
+        } else {
+            console.log(`Jugador ${draggedPlayer.name} ya es suplente. Soltado en lista de suplentes.`);
+            // Ya era suplente, no hace falta cambiar nada.
+             // Si quisieras cambiar el orden en la lista, necesitar\u00EDas l\u00F3gica adicional aqu\u00ED.
         }
     }
-    
-    draggedPlayerId = null;
+     // Soltar sobre el CAMPO (\#players-container) - Cuando no se suelta sobre un empty-slot o player espec\u00EDfico
+     // Este caso puede ocurrir si sueltas un jugador TITULAR en una parte vac\u00EDa del campo
+     // Mantenemos la l\u00F3gica b\u00E1sica de reposicionar visualmente (pero renderFormation lo anular\u00E1 al re-renderizar)
+    //  else if (dropTargetElement && dropTargetElement.id === 'players-container') {
+    //       console.log(`Soltado sobre el contenedor del campo (${draggedPlayer.name}).`);
+    //       // Si el jugador arrastrado es TITULAR y lo soltamos en una zona vac\u00EDa del campo
+    //       if (draggedPlayer.isStarter) {
+    //           // Nota: Con re-renderFormation, este bloque de actualizaci\u00F3n visual directa
+    //           // probablemente ya no es necesario, ya que renderFormation redibujar\u00E1 la posici\u00F3n
+    //           // si assignedSlotIndex es null (lo pondr\u00E1 en el primer slot libre si lo hay).
+    //           // Si quieres poder "mover libremente" titulares en el campo, necesitar\u00EDas guardar
+    //           // sus coordenadas X/Y directamente en el objeto jugador y usar esas coordenadas
+    //           // en renderFormation cuando assignedSlotIndex sea null.
+    //            console.log("Reposicionamiento libre de titulares no implementado con re-render.");
+    //       } else {
+    //           console.warn(`Suplente ${draggedPlayer.name} soltado en contenedor del campo sin target v\u00E1lido.`);
+    //       }
+    //  }
+     // Soltar sobre una TARJETA de JUGADOR en la lista de TITULARES (\#starting-eleven .player-card)
+     // Esta l\u00F3gica de intercambio con la lista de titulares necesitar\u00EDa ser implementada aqu\u00ED.
+     // Ser\u00EDa similar al intercambio de suplente con titular en campo, pero moviendo tarjetas en las listas.
+
+
+    draggedPlayerId = null; // Limpiar el ID del jugador arrastrado
 }
 
 
@@ -468,7 +504,7 @@ function showPositionDropdown(player, event) {
     dropdown.className = 'position-dropdown'; // Clase para darle estilo al desplegable
     dropdown.dataset.playerId = player.id; // Para saber de qu\u00E9 jugador es este desplegable
 
-    // A\u00F1adir estilos b\u00E1sicos al desplegable para que aparezca cerca de la tarjeta
+    // A\u00Fñadir estilos b\u00E1sicos al desplegable para que aparezca cerca de la tarjeta
     // Obtenemos la posici\u00F3n de la tarjeta relativa a la ventana
     const rect = playerCard.getBoundingClientRect();
     dropdown.style.position = 'fixed'; // Usar fixed para posicionar respecto a la ventana
@@ -540,12 +576,12 @@ function showPositionDropdown(player, event) {
     });
 
 
-    // A\u00F1adir el desplegable al cuerpo del documento
+    // A\u00Fñadir el desplegable al cuerpo del documento
     document.body.appendChild(dropdown);
     currentDropdown = dropdown;
 
 
-    // A\u00F1adir listener para cerrar el desplegable si se hace clic fuera
+    // A\u00Fñadir listener para cerrar el desplegable si se hace clic fuera
     // Usamos capture: true para que este listener se ejecute antes que otros posibles listeners de click
     document.addEventListener('click', handleClickOutsideDropdown, true);
 
@@ -579,13 +615,13 @@ function handleClickOutsideDropdown(event) {
 // ** Llama a la funci\u00F3n para cargar los jugadores desde JSON cuando la p\u00E1gina cargue **
 loadPlayersJson('players.json');
 
-// A\u00F1ade event listeners para Drag and Drop en el campo
+// A\u00Fñade event listeners para Drag and Drop en el campo
 const field = document.querySelector('.field');
 if (field) {
-    field.addEventListener('dragover', dragOver);
-    field.addEventListener('drop', drop);
+    field.addEventListener('dragover', dragOver);
+    field.addEventListener('drop', drop);
 } else {
-    console.error("Elemento con clase '.field' no encontrado.");
+    console.error("Elemento con clase '.field' no encontrado.");
 }
 
 // A\u00Fñade event listeners para Drag and Drop en las listas de jugadores
@@ -593,27 +629,27 @@ const startingElevenContainer = document.getElementById('starting-eleven');
 const benchContainer = document.getElementById('bench');
 
 if (startingElevenContainer) {
-    startingElevenContainer.addEventListener('dragover', dragOver);
-    // No permitimos soltar directamente en la lista de titulares para este flujo (si todos empiezan en banquillo)
-    // startingElevenContainer.addEventListener('drop', drop);
+    startingElevenContainer.addEventListener('dragover', dragOver);
+    // No permitimos soltar directamente en la lista de titulares para este flujo (si todos empiezan en banquillo)
+    // startingElevenContainer.addEventListener('drop', drop); // Comentamos esto si solo queremos arrastrar desde aqu\u00ED
 } else {
-     console.error("Elemento con ID 'starting-eleven' no encontrado.");
+     console.error("Elemento con ID 'starting-eleven' no encontrado.");
 }
 
 if (benchContainer) {
-    benchContainer.addEventListener('dragover', dragOver);
-    benchContainer.addEventListener('drop', drop); // Permitimos soltar en el contenedor de suplentes (para enviar del campo al banco)
+    benchContainer.addEventListener('dragover', dragOver);
+    benchContainer.addEventListener('drop', drop); // Permitimos soltar en el contenedor de suplentes (para enviar del campo al banco)
 } else {
-     console.error("Elemento con ID 'bench' no encontrado.");
+     console.error("Elemento con ID 'bench' no encontrado.");
 }
 
 
 // A\u00Fñade event listener para el selector de formaci\u00F3n
 const formationSelect = document.getElementById('formation');
 if (formationSelect) {
-    formationSelect.addEventListener('change', (e) => {
-        renderFormation(e.target.value);
-    });
+    formationSelect.addEventListener('change', (e) => {
+        renderFormation(e.target.value);
+    });
 } else {
-     console.error("Elemento con ID 'formation' no encontrado.");
+     console.error("Elemento con ID 'formation' no encontrado.");
 }
