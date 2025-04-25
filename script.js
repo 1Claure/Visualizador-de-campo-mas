@@ -25,29 +25,29 @@ const allPlayers = [
 const formations = {
     "433": [
         { x: 5, y: 50, type: 'GK' }, // Portero (cerca de la izquierda, centrado vertical)
-        { x: 25, y: 15, type: 'LB' }, // Lateral Izquierdo (derecha de GK, arriba)
-        { x: 25, y: 35, type: 'CB' }, // Central 1 (derecha de GK, centrado-arriba)
-        { x: 25, y: 65, type: 'CB' }, // Central 2 (derecha de GK, centrado-abajo)
-        { x: 25, y: 85, type: 'RB' }, // Lateral Derecho (derecha de GK, abajo)
-        { x: 50, y: 20, type: 'CM' }, // Mediocentro Izquierdo (medio campo, arriba)
-        { x: 55, y: 50, type: 'DM' }, // Pivote/Mediocentro Defensivo (medio campo, centrado)
-        { x: 50, y: 80, type: 'CM' }, // Mediocentro Derecho (medio campo, abajo)
-        { x: 85, y: 20, type: 'LW' }, // Extremo Izquierdo (cerca de portería rival, arriba)
-        { x: 90, y: 50, type: 'ST' }, // Delantero Centro (cerca de portería rival, centrado)
-        { x: 85, y: 80, type: 'RW' }  // Extremo Derecho (cerca de portería rival, abajo)
+        { x: 22, y: 15, type: 'LB' }, // Lateral Izquierdo (derecha de GK, arriba)
+        { x: 22, y: 37, type: 'CB' }, // Central 1 (derecha de GK, centrado-arriba)
+        { x: 22, y: 60, type: 'CB' }, // Central 2 (derecha de GK, centrado-abajo)
+        { x: 22, y: 85, type: 'RB' }, // Lateral Derecho (derecha de GK, abajo)
+        { x: 40, y: 30, type: 'CM' }, // Mediocentro Izquierdo (medio campo, arriba)
+        { x: 35, y: 50, type: 'DM' }, // Pivote/Mediocentro Defensivo (medio campo, centrado)
+        { x: 40, y: 70, type: 'CM' }, // Mediocentro Derecho (medio campo, abajo)
+        { x: 55, y: 18, type: 'LW' }, // Extremo Izquierdo (cerca de portería rival, arriba)
+        { x: 60, y: 50, type: 'ST' }, // Delantero Centro (cerca de portería rival, centrado)
+        { x: 55, y: 82, type: 'RW' }  // Extremo Derecho (cerca de portería rival, abajo)
     ],
     "442": [ // Adaptado para campo horizontal, tu portería a la izquierda
-        { x: 5, y: 50, type: 'GK' }, // Portero
-        { x: 25, y: 15, type: 'LB' }, // Lateral Izquierdo
-        { x: 25, y: 35, type: 'CB' }, // Central 1
-        { x: 25, y: 65, type: 'CB' }, // Central 2
-        { x: 25, y: 85, type: 'RB' }, // Lateral Derecho
-        { x: 50, y: 15, type: 'LM' }, // Interior Izquierdo (medio campo, arriba)
-        { x: 50, y: 40, type: 'CM' }, // Mediocentro 1 (medio campo, centrado-arriba)
-        { x: 50, y: 60, type: 'CM' }, // Mediocentro 2 (medio campo, centrado-abajo)
-        { x: 50, y: 85, type: 'RM' }, // Interior Derecho (medio campo, abajo)
-        { x: 80, y: 40, type: 'ST' }, // Delantero 1 (ataque, centrado-arriba)
-        { x: 80, y: 60, type: 'ST' }  // Delantero 2 (ataque, centrado-abajo)
+        { x: 5, y: 50, type: 'GK' }, // Portero (cerca de la izquierda, centrado vertical)
+        { x: 22, y: 15, type: 'LB' }, // Lateral Izquierdo (derecha de GK, arriba)
+        { x: 22, y: 37, type: 'CB' }, // Central 1 (derecha de GK, centrado-arriba)
+        { x: 22, y: 60, type: 'CB' }, // Central 2 (derecha de GK, centrado-abajo)
+        { x: 22, y: 85, type: 'RB' }, // Lateral Derecho (derecha de GK, abajo)
+        { x: 40, y: 15, type: 'LM' }, // Interior Izquierdo (medio campo, arriba)
+        { x: 40, y: 37, type: 'CM' }, // Mediocentro 1 (medio campo, centrado-arriba)
+        { x: 40, y: 60, type: 'CM' }, // Mediocentro 2 (medio campo, centrado-abajo)
+        { x: 40, y: 85, type: 'RM' }, // Interior Derecho (medio campo, abajo)
+        { x: 60, y: 37, type: 'ST' }, // Delantero 1 (ataque, centrado-arriba)
+        { x: 60, y: 60, type: 'ST' }  // Delantero 2 (ataque, centrado-abajo)
     ],
     // Puedes añadir más formaciones aquí
 };
